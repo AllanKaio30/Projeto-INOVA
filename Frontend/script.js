@@ -1,15 +1,21 @@
-function openAuthorModal() {
-    document.getElementById('authorModal').style.display = 'flex';
+function showTab(tab) {
+    document.getElementById('list').classList.add('hidden');
+    document.getElementById('calendar').classList.add('hidden');
+    document.getElementById(tab).classList.remove('hidden');
 }
 
-function closeAuthorModal() {
-    document.getElementById('authorModal').style.display = 'none';
+function openRegister() {
+    document.getElementById('registerModal').classList.remove('hidden');
 }
 
-function openEditModal() {
-    document.getElementById('editModal').style.display = 'flex';
+function closeRegister() {
+    document.getElementById('registerModal').classList.add('hidden');
 }
 
-function closeEditModal() {
-    document.getElementById('editModal').style.display = 'none';
+function openUpdate() {
+    document.getElementById('updateModal').classList.remove('hidden');
+}
+
+function closeUpdate() {
+    document.getElementById('updateModal').classList.add('hidden');
 }
