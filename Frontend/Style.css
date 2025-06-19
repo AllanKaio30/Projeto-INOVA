@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  background-color: #851f89;
+  color: white;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.logo img,
+.footer-logo img {
+  width: 100px;
+  margin: 0 auto;
+  display: block;
+}
+
+.menu a {
+  display: block;
+  padding: 12px 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.menu a.active,
+.menu a:hover {
+  background-color: #6a1a6e;
+  border-left: 4px solid #ffb400;
+}
+
+.content {
+  flex: 1;
+  padding: 20px 40px;
+  background-color: #fff;
+  overflow-y: auto;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar .back-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #000;
+  cursor: pointer;
+}
+
+.topbar h1 {
+  color: #851f89;
+}
+
+.top-icons {
+  display: flex;
+  gap: 10px;
+  font-size: 20px;
+}
+
+.status-bar {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.tag.arquivada {
+  background-color: orange;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.edit-button {
+  background-color: #ff9500;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.tab {
+  background-color: #eee;
+  border: none;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+}
+
+.tab.active {
+  background-color: white;
+  border-bottom: 2px solid #851f89;
+  font-weight: bold;
+}
+
+.historico h2 {
+  color: #851f89;
+  margin-bottom: 15px;
+}
+
+.timeline {
+  list-style: none;
+  padding-left: 0;
+  border-left: 3px solid #ccc;
+  margin-left: 10px;
+}
+
+.event {
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.event::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: -10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #ccc;
+  border: 2px solid white;
+}
+
+.event.purple::before { background-color: purple; }
+.event.orange::before { background-color: orange; }
+.event.green::before { background-color: green; }
+.event.red::before { background-color: red; }
+
+.event .date {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
