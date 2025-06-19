@@ -2,118 +2,92 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Gestão de Autores</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Gestão de Pagamentos</title>
+    <link rel="stylesheet" href="Style.css">
 </head>
 <body>
     <aside class="sidebar">
-        <img src="imagens/LOGO GPI.png" alt="Logo GPI" class="logo-gpi">
+        <img src="imagens/LOGO GPI.png0
+        " alt="Logo GPI" class="logo-gpi">
+
         <nav>
             <a href="#">Início</a>
             <a href="#">Propriedade Intelectual</a>
-            <a href="#" class="active">Autores</a>
-            <a href="#">Pagamentos</a>
+            <a href="#" class="active">Pagamentos</a>
             <a href="#">Configurações</a>
         </nav>
-        <img src="imagens/UERN INOVA LOGO.png" alt="Logo UERN Inova" class="logo-uern">
+        <footer><img src="imagens/UERN INOVA LOGO.png" alt="UERN Inova"></footer>
     </aside>
 
-    <main>
-        <h1>Autores</h1>
-        <div class="top-bar">
-            <input type="text" placeholder="Buscar por nome, sobrenome, instituição, etc.">
-            <button class="filter-btn">Filtros</button>
-            <button class="add-btn" onclick="openAuthorModal()">Cadastrar Autor</button>
-        </div>
+    <main class="content">
+        <section class="dashboard">
+            <div class="card purple">Pendentes<br><b>3</b><br>R$ 3.000,00</div>
+            <div class="card green">Realizados<br><b>17</b><br>R$ 9.550,00</div>
+            <div class="card yellow">Atrasados<br><b>5</b><br>R$ 950,00</div>
+            <div class="card pink">Total<br><b>25</b><br>R$ 13.450,00</div>
+        </section>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>E-mail</th>
-                    <th>Instituição</th>
-                    <th>PIs Registrados</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>01</td>
-                    <td>Fulano de Tal</td>
-                    <td>email@email.com</td>
-                    <td>Universidade do Estado do Rio Grande do Norte</td>
-                    <td><span class="badge">2</span></td>
-                    <td>
-                        <button onclick="openEditModal()">✏️</button>
-                    </td>
-                </tr>
-                <!-- Adicione mais linhas conforme necessário -->
-            </tbody>
-        </table>
+        <section class="next-payments">
+            <h2>Próximos Pagamentos</h2>
+            <div class="payment">
+                Anuidade - PI 0910083 0 <br> Vencimento: 28/06/2023 <span>R$ 800,00</span>
+            </div>
+            <button onclick="openRegister()">+ Registrar Novo Pagamento</button>
+        </section>
 
-        <div class="pagination">
-            <button>Anterior</button>
-            <button class="active">1</button>
-            <button>2</button>
-            <button>Próxima</button>
-        </div>
+        <section class="tabs">
+            <button onclick="showTab('list')">Lista de Pagamentos</button>
+            <button onclick="showTab('calendar')">Calendário de Pagamentos</button>
+        </section>
+
+        <section id="list" class="tab-content">
+            <input type="text" placeholder="Buscar...">
+            <table>
+                <thead>
+                    <tr><th>ID</th><th>PI</th><th>Tipo</th><th>Valor</th><th>Vencimento</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PAG-01</td><td>0910083</td><td>Anuidade</td><td>R$ 800,00</td><td>02/02/2025</td><td>Pago</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="calendar" class="tab-content hidden">
+            <h3>Junho 2023</h3>
+            <div class="calendar">
+                <div>Seg</div><div>Ter</div><div>Qua</div><div>Qui</div><div>Sex</div><div>Sab</div><div>Dom</div>
+                <div class="day paid">2</div>
+                <div class="day due">28</div>
+            </div>
+        </section>
     </main>
 
-    <!-- Modal Cadastrar Autor -->
-    <div class="modal" id="authorModal">
-        <div class="modal-content">
-            <h2>Cadastrar Novo Autor</h2>
-            <label>Nome</label>
-            <input type="text" placeholder="Nome completo">
-            <label>E-mail</label>
-            <input type="email" placeholder="email@email.com">
-            <label>Vínculo</label>
-            <div class="radio-group">
-                <label><input type="radio" name="vinculo"> Docente</label>
-                <label><input type="radio" name="vinculo"> Técnico</label>
-                <label><input type="radio" name="vinculo"> Discente Graduação</label>
-                <label><input type="radio" name="vinculo"> Discente Pós-Graduação</label>
-            </div>
-            <label>Departamento</label>
-            <input type="text" placeholder="Departamento">
-            <label>Campus</label>
-            <input type="text" placeholder="Campus">
-            <label>Universidade</label>
-            <input type="text" placeholder="Universidade">
-            <div class="modal-actions">
-                <button onclick="closeAuthorModal()">Cancelar</button>
-                <button>Salvar</button>
-            </div>
-        </div>
+    <!-- Registrar pagamento -->
+    <div id="registerModal" class="modal hidden">
+        <h2>Registrar Novo Pagamento</h2>
+        <input type="text" placeholder="Propriedade Intelectual">
+        <input type="text" placeholder="Tipo de Pagamento">
+        <input type="number" placeholder="Valor (R$)">
+        <input type="date">
+        <textarea placeholder="Observações"></textarea>
+        <button onclick="closeRegister()">Registrar</button>
     </div>
 
-    <!-- Modal Editar Autor -->
-    <div class="modal" id="editModal">
-        <div class="modal-content">
-            <h2>Editar Autor</h2>
-            <label>Nome</label>
-            <input type="text" value="Fulano de Tal">
-            <label>E-mail</label>
-            <input type="email" value="email@email.com">
-            <label>Vínculo</label>
-            <div class="radio-group">
-                <label><input type="radio" name="vinculo-edit"> Docente</label>
-                <label><input type="radio" name="vinculo-edit"> Técnico</label>
-                <label><input type="radio" name="vinculo-edit"> Discente Graduação</label>
-                <label><input type="radio" name="vinculo-edit"> Discente Pós-Graduação</label>
-            </div>
-            <label>Departamento</label>
-            <input type="text" value="Departamento">
-            <label>Campus</label>
-            <input type="text" value="Mossoró">
-            <label>Universidade</label>
-            <input type="text" value="UERN">
-            <div class="modal-actions">
-                <button onclick="closeEditModal()">Cancelar</button>
-                <button>Salvar Alterações</button>
-            </div>
-        </div>
+    <!-- Atualizar pagamento -->
+    <div id="updateModal" class="modal hidden">
+        <h2>Atualizar Status de Pagamento</h2>
+        <input type="text" value="PI 0910083 0 - Algoritmo" disabled>
+        <input type="text" value="Anuidade" disabled>
+        <input type="number" value="800" disabled>
+        <select>
+            <option>Pago</option>
+            <option>Pendente</option>
+        </select>
+        <input type="date">
+        <textarea placeholder="Observações"></textarea>
+        <button onclick="closeUpdate()">Salvar Alterações</button>
     </div>
 
     <script src="script.js"></script>

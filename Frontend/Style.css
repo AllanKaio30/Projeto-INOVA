@@ -1,161 +1,130 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
-
 body {
-  background-color: #f5f5f5;
-}
-
-.container {
-  display: flex;
-  height: 100vh;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
 }
 
 .sidebar {
-  background-color: #851f89;
-  color: white;
-  width: 220px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 20px 0;
+    width: 200px;
+    background: purple;
+    color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.logo img,
-.footer-logo img {
-  width: 100px;
-  margin: 0 auto;
-  display: block;
+.sidebar nav a {
+    color: white;
+    display: block;
+    margin: 10px 0;
+    text-decoration: none;
 }
 
-.menu a {
-  display: block;
-  padding: 12px 20px;
-  color: white;
-  text-decoration: none;
-}
-
-.menu a.active,
-.menu a:hover {
-  background-color: #6a1a6e;
-  border-left: 4px solid #ffb400;
+.sidebar nav .active {
+    background: white;
+    color: purple;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .content {
-  flex: 1;
-  padding: 20px 40px;
-  background-color: #fff;
-  overflow-y: auto;
+    flex: 1;
+    padding: 20px;
 }
 
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.dashboard {
+    display: flex;
+    gap: 10px;
 }
 
-.topbar .back-button {
-  background: none;
-  border: none;
-  font-size: 16px;
-  color: #000;
-  cursor: pointer;
+.card {
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    flex: 1;
+    text-align: center;
 }
 
-.topbar h1 {
-  color: #851f89;
+.purple { background: #9b59b6; }
+.green { background: #2ecc71; }
+.yellow { background: #f1c40f; }
+.pink { background: #e91e63; }
+
+.next-payments, .tabs {
+    margin-top: 20px;
 }
 
-.top-icons {
-  display: flex;
-  gap: 10px;
-  font-size: 20px;
+.payment {
+    background: #eee;
+    padding: 10px;
+    border-radius: 5px;
 }
 
-.status-bar {
-  margin: 20px 0;
-  display: flex;
-  align-items: center;
-  gap: 20px;
+.tabs button {
+    margin-right: 10px;
 }
 
-.tag.arquivada {
-  background-color: orange;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-weight: bold;
+.tab-content {
+    margin-top: 20px;
 }
 
-.edit-button {
-  background-color: #ff9500;
-  color: white;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+.hidden {
+    display: none;
 }
 
-.tabs {
-  display: flex;
-  margin-bottom: 20px;
+table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.tab {
-  background-color: #eee;
-  border: none;
-  padding: 10px 20px;
-  margin-right: 10px;
-  border-radius: 6px 6px 0 0;
-  cursor: pointer;
+table th, table td {
+    padding: 5px;
+    border: 1px solid #ccc;
 }
 
-.tab.active {
-  background-color: white;
-  border-bottom: 2px solid #851f89;
-  font-weight: bold;
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
 }
 
-.historico h2 {
-  color: #851f89;
-  margin-bottom: 15px;
+.day {
+    background: #eee;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
 }
 
-.timeline {
-  list-style: none;
-  padding-left: 0;
-  border-left: 3px solid #ccc;
-  margin-left: 10px;
+.paid { background: #2ecc71; color: white; }
+.due { background: #e74c3c; color: white; }
+
+.modal {
+    position: fixed;
+    top: 20%;
+    left: 35%;
+    background: white;
+    padding: 20px;
+    border: 2px solid #ccc;
+    z-index: 100;
 }
 
-.event {
-  position: relative;
-  margin-bottom: 20px;
-  padding-left: 20px;
+.modal input, .modal textarea, .modal select {
+    width: 100%;
+    margin: 5px 0;
+}
+html, body {
+    height: 100%;
+    margin: 0;
 }
 
-.event::before {
-  content: '';
-  position: absolute;
-  top: 6px;
-  left: -10px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background-color: #ccc;
-  border: 2px solid white;
-}
-
-.event.purple::before { background-color: purple; }
-.event.orange::before { background-color: orange; }
-.event.green::before { background-color: green; }
-.event.red::before { background-color: red; }
-
-.event .date {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 5px;
+.sidebar {
+    height: 100vh; /* ocupa toda a altura da janela */
+    width: 200px;
+    background: purple;
+    color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
