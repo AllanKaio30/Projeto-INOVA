@@ -1,4 +1,6 @@
 const PI = require('../mockDB/mockDB');
+const autorDB = require('../mockDB/autorMockData');
+
 
 // Validação comum
 const validatePIData = (data, isUpdate = false) => {
@@ -260,9 +262,9 @@ exports.getTitularesByPI = async (req, res) => {
   try {
     const pi = await PI.findById(req.params.id);
     if (!pi) {
-      return res.status(404).json({
-        success: false,
-        error: "PI não encontrada"
+      return res.status(404).json({ 
+        success: false, 
+        error: "PI não encontrado" 
       });
     }
 
@@ -275,14 +277,18 @@ exports.getTitularesByPI = async (req, res) => {
       });
     }
 
+    const titulares = await Promise.all(
+      pi.titulares.map(titular => autorDB.findById(titular.id))
+    );
+    
     res.json({
       success: true,
-      count: pi.titulares.length,
-      data: pi.titulares
+      count: titulares.filter(t => t !== null).length,
+      data: titulares.filter(t => t !== null)
     });
   } catch (error) {
     res.status(500).json({ 
-      success: false, 
+      success: false,
       error: "Erro ao buscar titulares",
       details: error.message
     });

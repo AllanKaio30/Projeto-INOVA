@@ -1,23 +1,24 @@
 const piMockData = [
   {
-    id: 1,  // ou UUID (recomendado)
-    tipo_pi: "patente",  // valores fixos: "patente", "marca", "software"
+    id: 1,  
+    tipo_pi: "patente",  
     titulo: "Sistema de Gestão de PI",
-    protocolo: "BR20230001",  // formato BR + ano + sequência
-    cessao_assinada: true,  // campo renomeado para padronização
+    protocolo: "BR20230001", 
+    cessao_assinada: true,  
     depositante: "Empresa ABC",
     status: "pendente",  // valores fixos: "pendente", "concedida", "expirada", "negada"
-    parceiro: null,  // campo renomeado (opcional, string ou null)
-    data_entrada: "2023-01-15",  // ISO 8601 (YYYY-MM-DD)
-    // --- Novos campos recomendados ---
-    classificacao_ipc: "G06F16/9035",  // obrigatório para patentes
-    resumo: "Descrição técnica resumida...",  // obrigatório
-    titulares: [  // array de objetos (obrigatório)
-      { nome: "Empresa ABC", pais: "BR", percentual: 100 }
+    parceiro: null,
+    data_entrada: "2023-01-15",
+    classificacao_ipc: "G06F16/9035", 
+    resumo: "Descrição técnica resumida...",
+    titulares: [
+      { id: 101, nome: "Titular Existente", pais: "BR", percentual: 100 },
+      { id: 102 }
     ],
-    data_vencimento: "2043-01-15",  // calculada a partir da data_entrada
-    documentos: ["termo_cessao.pdf", "relatorio_tecnico.pdf"]  // opcional
-  }
+    data_vencimento: "2043-01-15",
+    documentos: ["termo_cessao.pdf", "relatorio_tecnico.pdf"]
+  },
+  { id: 2, titulo: "PI Sem Titulares" } // Sem campo 'titulares'
 ];
 
 module.exports = {

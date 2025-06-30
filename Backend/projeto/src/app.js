@@ -26,4 +26,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Erro interno' });
 });
 
+const autorRouter = require('./routes/autorRoutes');
+app.use('/api/autores', autorRouter); // Prefixo consistente com /api/pi
+
 module.exports = app;
