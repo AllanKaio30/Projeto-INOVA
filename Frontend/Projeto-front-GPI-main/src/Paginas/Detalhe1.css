@@ -1,0 +1,569 @@
+.container-patente {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+  background-color: #f9fafb;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #6B21A8;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar img {
+  width: 150px;
+  margin-bottom: 30px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  padding: 10px 5px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.sidebar button:hover {
+  background-color: #7E22CE;
+}
+
+.main-content {
+  flex: 1;
+  padding: 30px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header h2 {
+  color: #6B21A8;
+  font-size: 22px;
+  margin-left: 10px;
+}
+
+.status-badge {
+  background-color: #FED7AA;
+  color: #C2410C;
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+.edit-button {
+  background-color: #F97316;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tabs {
+  margin: 20px 0;
+}
+
+.tabs button {
+  background-color: #E5E7EB;
+  border: 1px solid #D1D5DB;
+  padding: 10px 16px;
+  border-radius: 5px 5px 0 0;
+  margin-right: 10px;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.tabs button.active {
+  background-color: white;
+  font-weight: bold;
+}
+
+.card {
+  background-color: #f9f5ff;
+  padding: 20px;
+  border-radius: 10px;
+  color: #9333ea;
+}
+
+.card h3 {
+  color: #9333ea;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.grid-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  font-size: 14px;
+}
+
+.authors-card {
+  margin-top: 20px;
+  background-color: #f3e8ff;
+  padding: 15px;
+  border-radius: 10px;
+  color: #6b21a8;
+}
+.secao-autores {
+ width: 100%;
+  max-width: 100%;
+  margin-top: 30px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.cabecalho-autores {
+  display: flex;
+  align-items: center;
+  background-color: #f5eafa;
+  padding: 12px 16px;
+  border-bottom: 1px solid #d1d5db;
+}
+
+.icone-autores {
+  font-size: 24px;
+  color: #9b27b0;
+  margin-right: 10px;
+}
+
+.cabecalho-autores h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #9b27b0;
+  font-weight: 700;
+}
+
+.lista-autores {
+  padding: 16px;
+}
+
+.autor-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.autor-icon {
+  background-color: #ffffff;
+  color: white;
+  font-size: 22px;
+  width: 110px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+}
+
+.autor-nome {
+  font-size: 16px;
+  font-weight: bold;
+  color: #111827;
+}
+.secao-depositantes {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-top: 30px;
+  background: #fff;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.secao-depositantes .secao-titulo {
+  background: #f4e9f7;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  gap: 10px;
+}
+
+.secao-depositantes .secao-titulo h3 {
+  color: #8e24aa;
+  font-size: 24px;
+  margin: 0;
+}
+
+.secao-depositantes .icone-titulo {
+  font-size: 30px;
+  color: #8e24aa;
+}
+
+.conteudo-depositantes {
+  display: flex;
+  justify-content: space-around;
+  padding: 30px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.coluna {
+  flex: 1 1 200px;
+  margin: 10px;
+}
+
+.titulo-coluna {
+  font-weight: bold;
+  color: #555;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.valor-coluna {
+  font-size: 20px;
+  font-weight: bold;
+}
+.patente-detalhes-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f0f2f5;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.title-section {
+  display: flex;
+  align-items: center;
+}
+
+.info-icon {
+  background-color: #e6e6fa; /* Light purple */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.info-icon i {
+  color: #6a5acd; /* Medium purple */
+  font-size: 20px;
+}
+
+h1 {
+  color: #333;
+  font-size: 24px;
+  margin: 0;
+}
+
+.add-rpi-button {
+  background-color: #ffa500; /* Orange */
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.add-rpi-button:hover {
+  background-color: #e69500; /* Darker orange */
+}
+
+.add-rpi-button i {
+  font-size: 14px;
+}
+
+.rpi-events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.rpi-card {
+  background-color: #fffacd; /* Light yellow */
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 150px; /* Adjust as needed */
+}
+
+.rpi-card .card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #d2691e; /* Chocolate/Orange-brown */
+  font-weight: bold;
+}
+
+.rpi-card .card-header i {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.rpi-card p {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.5;
+}
+/* ESTILOS PARA O CONTAINER DO HISTÓRICO DE EVENTOS */
+.historico-eventos-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 30px; /* Garante espaçamento entre as abas e o conteúdo */
+}
+
+.historico-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px; /* Espaço entre o cabeçalho e a timeline */
+}
+
+.historico-icon {
+  background-color: #7E22CE; /* Cor roxa do ícone */
+  color: white;
+  border-radius: 50%;
+  width: 40px; /* Um pouco maior que o info-icon */
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.historico-eventos-container h1 {
+  color: #7E22CE; /* Cor roxa para o título */
+  font-size: 24px;
+  margin: 0;
+}
+
+/* ESTILOS PARA A LINHA DO TEMPO (TIMELINE) */
+.timeline {
+  position: relative;
+  padding-left: 30px; /* Espaço para a linha vertical */
+}
+
+.timeline::before { /* A linha vertical */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10px; /* Posição da linha */
+  width: 2px;
+  height: 100%;
+  background-color: #ddd; /* Cor da linha */
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 30px; /* Espaço entre os itens da timeline */
+  padding-left: 30px; /* Espaço entre o círculo e o conteúdo do item */
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0; /* Remove a margem do último item */
+}
+
+.timeline-icon { /* O círculo colorido em cada ponto da linha do tempo */
+  position: absolute;
+  top: 0;
+  left: 0; /* Alinhado com a linha vertical */
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ccc; /* Cor padrão, será sobrescrita */
+  border: 3px solid white; /* Borda branca para destacar do fundo */
+  box-shadow: 0 0 0 2px #ccc; /* Sombra para o círculo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Cores dos ícones baseadas no 'status' */
+.timeline-icon.pending { /* Roxo */
+  background-color: #7E22CE;
+  box-shadow: 0 0 0 2px #7E22CE;
+}
+.timeline-icon.orange { /* Laranja */
+  background-color: #F97316;
+  box-shadow: 0 0 0 2px #F97316;
+}
+.timeline-icon.green { /* Verde */
+  background-color: #22C55E;
+  box-shadow: 0 0 0 2px #22C55E;
+}
+.timeline-icon.red { /* Vermelho */
+  background-color: #EF4444;
+  box-shadow: 0 0 0 2px #EF4444;
+}
+
+.timeline-content {
+  background-color: #F9FAFB; /* Fundo levemente cinza para o conteúdo */
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-date {
+  font-size: 13px;
+  color: #7E22CE; /* Roxo */
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block; /* Garante que o título e a descrição fiquem em novas linhas */
+}
+
+.timeline-title {
+  font-size: 16px;
+  color: #333;
+  margin: 0 0 5px 0;
+  font-weight: bold;
+}
+
+.timeline-description {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  line-height: 1.5;
+}
+/* Estilos para seções de card (Informações principais, Autores, etc.) */
+.card-form-section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Espaço entre as seções */
+}
+
+.section-title {
+  color: #6B21A8; /* Cor roxa para os títulos de seção */
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Grid para o layout dos campos do formulário */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 2 a 3 colunas dependendo do espaço */
+  gap: 15px 20px; /* Espaçamento vertical e horizontal */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  border: 1px solid #D1D5DB;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 100%; /* Garante que ocupem a largura do form-group */
+  box-sizing: border-box; /* Inclui padding e border no width */
+}
+
+/* Estilo para o campo de autor com botão de adicionar */
+.form-group-inline {
+  display: flex;
+  align-items: flex-end; /* Alinha o input e o botão pela base */
+  gap: 10px;
+}
+
+.form-group-inline input {
+  flex-grow: 1; /* Faz o input ocupar o máximo de espaço */
+}
+
+.add-author-button {
+  background-color: #F97316; /* Laranja */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex; /* Para centralizar o ícone */
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.add-author-button:hover {
+  background-color: #E65100; /* Laranja mais escuro no hover */
+}
+
+/* Estilos para os botões de ação do formulário (Cancelar, Cadastrar) */
+.cancel-button {
+  background-color: #EF4444; /* Vermelho */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.cancel-button:hover {
+  background-color: #DC2626; /* Vermelho mais escuro no hover */
+}
+
+.submit-button {
+  background-color: #7E22CE; /* Roxo */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.submit-button:hover {
+  background-color: #6B21A8; /* Roxo mais escuro no hover */
+}
+
+/* Estilos existentes para .container, .sidebar, main, etc., devem ser mantidos. */

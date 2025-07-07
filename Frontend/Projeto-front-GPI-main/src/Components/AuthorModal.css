@@ -1,0 +1,271 @@
+/* src/Components/AuthorModal.css */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content-author {
+    background-color: #fff;
+    padding: 30px; /* Você pode ajustar este padding se achar muito */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px; /* Largura máxima, já estava OK */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Reduzi o gap entre os elementos internos para diminuir a altura */
+    position: relative;
+
+    /* ***** AJUSTES PARA ALTURA ***** */
+    max-height: 90vh; /* Limita a altura máxima a 90% da altura da viewport */
+    overflow-y: auto; /* Adiciona uma barra de rolagem vertical se o conteúdo exceder max-height */
+    /* Você pode experimentar com um valor fixo, ex: height: 600px; se preferir */
+}
+
+.modal-header-author {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px; /* Reduzi a margem */
+    /* Garante que o header não seja afetado pelo overflow */
+    flex-shrink: 0;
+}
+
+.modal-header-author h2 {
+    font-size: 22px; /* Reduzi um pouco o tamanho da fonte */
+    color: #333;
+    margin: 0;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 28px; /* Reduzi um pouco o tamanho do 'x' */
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.close-button:hover {
+    color: #666;
+}
+
+.modal-subtitle {
+    font-size: 15px; /* Reduzi um pouco o tamanho da fonte */
+    color: #777;
+    margin-bottom: 10px; /* Reduzi a margem */
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px; /* Reduzi o padding */
+    flex-shrink: 0; /* Garante que o subtitulo não seja afetado pelo overflow */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Reduzi a margem entre os grupos de formulário */
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px; /* Reduzi um pouco o tamanho da fonte */
+    color: #555;
+    margin-bottom: 6px; /* Reduzi a margem */
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"] {
+    width: 100%;
+    padding: 10px; /* Reduzi o padding interno do input */
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px; /* Reduzi o tamanho da fonte do input */
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus {
+    border-color: #8e24aa;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(142, 36, 170, 0.2);
+}
+
+.form-group input::placeholder {
+    color: #bbb;
+}
+
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Reduzi o gap entre os radio buttons */
+    margin-top: 5px;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px; /* Reduzi o gap */
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 14px; /* Reduzi o tamanho da fonte */
+}
+
+.radio-group input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 16px; /* Reduzi o tamanho do radio button */
+    height: 16px; /* Reduzi o tamanho do radio button */
+    border: 2px solid #aaa;
+    border-radius: 50%;
+    background-color: #fff;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.radio-group input[type="radio"]:checked {
+    border-color: #8e24aa;
+    background-color: #8e24aa;
+}
+
+.radio-group input[type="radio"]:checked::before {
+    content: '';
+    display: block;
+    width: 6px; /* Ajustei o tamanho do círculo interno */
+    height: 6px; /* Ajustei o tamanho do círculo interno */
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.radio-group input[type="radio"]:focus {
+    box-shadow: 0 0 0 3px rgba(142, 36, 170, 0.2);
+}
+
+.modal-actions-author {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px; /* Reduzi o gap entre os botões de ação */
+    margin-top: 15px; /* Reduzi a margem superior */
+    flex-shrink: 0; /* Garante que as ações não sejam afetadas pelo overflow */
+    padding-top: 10px; /* Adicione um padding top para separar do conteúdo acima */
+    border-top: 1px solid #eee; /* Linha divisória acima dos botões */
+}
+
+.cancel-button,
+.save-button {
+    padding: 10px 20px; /* Reduzi o padding interno dos botões */
+    border: none;
+    border-radius: 8px;
+    font-size: 15px; /* Reduzi o tamanho da fonte dos botões */
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.cancel-button {
+    background-color: #e0e0e0;
+    color: #555;
+}
+
+.cancel-button:hover {
+    background-color: #ccc;
+}
+
+.save-button {
+    background-color: #8e24aa;
+    color: #fff;
+    font-weight: bold;
+}
+
+.save-button:hover {
+    background-color: #6a0dad;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 600px) {
+    .modal-content-author {
+        padding: 15px; /* Reduzi o padding geral */
+        margin: 10px;
+        gap: 10px; /* Reduzi o gap */
+    }
+
+    .modal-header-author h2 {
+        font-size: 18px; /* Reduzi ainda mais para telas muito pequenas */
+    }
+
+    .close-button {
+        font-size: 22px;
+    }
+
+    .modal-subtitle {
+        font-size: 14px;
+        padding-bottom: 5px;
+    }
+
+    .form-group {
+        margin-bottom: 12px;
+    }
+
+    .form-group label {
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"] {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .radio-group {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .radio-group label {
+        font-size: 13px;
+    }
+
+    .radio-group input[type="radio"] {
+        width: 14px;
+        height: 14px;
+    }
+
+    .radio-group input[type="radio"]:checked::before {
+        width: 5px;
+        height: 5px;
+    }
+
+    .modal-actions-author {
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 10px;
+        padding-top: 8px;
+    }
+
+    .cancel-button,
+    .save-button {
+        width: 100%;
+        text-align: center;
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}

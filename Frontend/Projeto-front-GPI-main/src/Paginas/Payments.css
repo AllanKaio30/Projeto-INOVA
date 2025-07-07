@@ -1,0 +1,133 @@
+/* src/Paginas/Payments.css */
+
+/* O body e html podem ter estilos mais globais, mas ajuste para o seu App.js */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    /* Remover display/justify-content daqui se seu App.js já gerencia o layout global */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: flex-start; */
+    min-height: 100vh;
+}
+
+/* O contêiner principal da página de pagamentos */
+.payments-container {
+    display: flex; /* Para Sidebar e Content ficarem lado a lado */
+    width: 100%;
+    /* margin: 0 auto; - se quiser centralizar tudo */
+}
+
+/* O conteúdo principal da página de pagamentos, ao lado da sidebar */
+.payments-container .content { /* AGORA COM PREFIXO */
+    flex-grow: 1;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin: 20px; /* Margem em relação ao body/tela */
+    max-width: 1200px;
+}
+
+.payments-container .title { /* AGORA COM PREFIXO */
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Estilos para o cabeçalho do dashboard (onde está o botão "Registrar Novo Pagamento") */
+.payments-container .dashboard-header-payments { /* AGORA COM PREFIXO */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.payments-container .register-button-payments { /* AGORA COM PREFIXO */
+    background-color: #6a0dad;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.payments-container .register-button-payments:hover { /* AGORA COM PREFIXO */
+    background-color: #530a84;
+}
+
+.payments-container .register-button-payments .plus-icon { /* AGORA COM PREFIXO */
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Estilos para as abas (Lista de Pagamentos / Calendário de Pagamentos) */
+.payments-container .tabs-container { /* AGORA COM PREFIXO */
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.payments-container .tabs-container button { /* AGORA COM PREFIXO */
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #666;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    position: relative;
+    top: 2px;
+}
+
+.payments-container .tabs-container button.active-tab { /* AGORA COM PREFIXO */
+    color: #6a0dad;
+    border-bottom: 2px solid #6a0dad;
+    font-weight: bold;
+    background-color: #fff;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+    z-index: 1;
+    top: 0;
+}
+
+/* Estilos do cabeçalho do calendário (o título "Calendário de Pagamentos" dentro da aba) */
+.payments-container .calendar-section { /* AGORA COM PREFIXO */
+    margin-top: 20px;
+}
+
+.payments-container .calendar-header { /* AGORA COM PREFIXO */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.payments-container .calendar-header .calendar-icon { /* AGORA COM PREFIXO */
+    font-size: 28px;
+    color: #6a0dad;
+}
+
+.payments-container .calendar-header h2 { /* AGORA COM PREFIXO */
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+}
+
+/* Container que divide o Calendário e a PaymentList lado a lado */
+.payments-container .calendar-and-list-container { /* AGORA COM PREFIXO */
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}

@@ -1,0 +1,266 @@
+/* src/Paginas/Autor.css */
+
+.authors-container { /* Mantendo a classe 'authors-container' para padronização */
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f0f2f5; /* Fundo cinza claro */
+}
+
+.authors-content { /* Mantendo a classe 'authors-content' */
+    flex-grow: 1;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin: 20px;
+    max-width: 1200px;
+    margin-left: auto; /* Centraliza o conteúdo se a largura for menor que 100% */
+    margin-right: auto;
+}
+
+.authors-title {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.authors-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 20px; /* Espaço entre a busca e os botões */
+    flex-wrap: wrap; /* Permite que os itens quebrem linha */
+}
+
+.authors-header .search-bar {
+    flex-grow: 1;
+    max-width: 400px; /* Limita a largura da barra de busca */
+    position: relative;
+}
+
+.authors-header .search-bar input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    padding-left: 40px; /* Espaço para o ícone de busca */
+}
+
+.authors-header .search-bar input::placeholder {
+    color: #999;
+}
+
+/* Ícone de busca se for usar um */
+.authors-header .search-bar .search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 18px;
+}
+
+.authors-header .header-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.filter-button,
+.add-author-button {
+    background-color: #ff9800; /* Laranja para Filtros */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.add-author-button {
+    background-color: #8e24aa; /* Roxo para Cadastrar Autor, conforme a paleta */
+}
+
+.filter-button:hover {
+    background-color: #fb8c00;
+}
+
+.add-author-button:hover {
+    background-color: #6a0dad;
+}
+
+.filter-icon, .plus-icon {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Tabela de Autores */
+.authors-table-wrapper {
+    overflow-x: auto; /* Garante scroll em telas pequenas para a tabela */
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.authors-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+.authors-table th,
+.authors-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.authors-table th {
+    background-color: #f8f8f8;
+    color: #555;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.authors-table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.authors-table td {
+    color: #444;
+    font-size: 15px;
+}
+
+.registered-pis-badge {
+    background-color: #e1bee7; /* Roxo claro */
+    color: #8e24aa; /* Roxo escuro */
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    display: inline-block;
+    min-width: 30px; /* Garante um tamanho mínimo */
+    text-align: center;
+}
+
+.edit-author-button {
+    background: none;
+    border: 1px solid #ff9800; /* Borda laranja */
+    color: #ff9800; /* Cor do ícone laranja */
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-author-button:hover {
+    background-color: #ff9800;
+    color: #fff;
+}
+
+/* Paginação */
+.authors-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    font-size: 15px;
+    color: #555;
+    flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
+}
+
+.authors-pagination .pagination-info {
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.authors-pagination .pagination-controls {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.pagination-button {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #555;
+    transition: all 0.3s ease;
+}
+
+.pagination-button:hover:not(.active):not(:disabled) {
+    background-color: #f0f0f0;
+    border-color: #ccc;
+}
+
+.pagination-button.active {
+    background-color: #8e24aa; /* Roxo da paleta */
+    color: #fff;
+    border-color: #8e24aa;
+    font-weight: bold;
+}
+
+.pagination-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 992px) {
+    .authors-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .authors-header .search-bar {
+        max-width: 100%;
+        width: 100%;
+    }
+    .authors-header .header-buttons {
+        width: 100%;
+        justify-content: flex-end; /* Alinha botões à direita em telas menores */
+    }
+    .filter-button,
+    .add-author-button {
+        flex-grow: 1; /* Permite que os botões se expandam */
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .authors-content {
+        padding: 20px;
+        margin: 10px;
+    }
+    .authors-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    .authors-table th,
+    .authors-table td {
+        padding: 10px;
+        font-size: 14px;
+    }
+    .authors-pagination {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .authors-pagination .pagination-controls {
+        justify-content: center;
+    }
+}
