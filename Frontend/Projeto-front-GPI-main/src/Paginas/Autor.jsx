@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Sidebar from '../Components/Sidebar';
 import RegisterAuthorModal from '../Components/RegisterAuthorModal'; // Importe o modal de cadastro
 import UpdateAuthorModal from '../Components/UpdateAuthorModal';     // Importe o modal de edição
+import axios from 'axios';
 import './Autor.css'; // Seu CSS para a página de autores
 
 export default function Autor() {
@@ -26,6 +27,15 @@ export default function Autor() {
         { id: '09', name: 'Lucas Pereira', email: 'lucas@email.com', institution: 'Universidade do Estado do Rio Grande do Norte', registeredPIs: 6, bond: 'Discente Pós-Graduação', department: 'Química', campus: 'Assu', university: 'UERN' },
         { id: '10', name: 'Carla Nunes', email: 'carla@email.com', institution: 'Instituto Federal do Rio Grande do Norte', registeredPIs: 1, bond: 'Docente', department: 'Mecatrônica', campus: 'Apodi', university: 'IFRN' },
     ]);
+    useEffect(() => {
+    axios.get(`${process.env.REACT_APP_API_URL}/api/autores`)
+        .then((response) => {
+            setAllAuthors(response.data);
+        })
+        .catch((error) => {
+            console.error("Erro ao buscar autores:", error);
+        });
+}, []);
 
     // Lógica de filtro pela barra de busca
     const filteredAuthors = allAuthors.filter(author =>
@@ -58,19 +68,26 @@ export default function Autor() {
     const handleCloseUpdateModal = () => setShowUpdateModal(false);
 
     // Funções de callback para quando o modal de cadastro/edição tiver sucesso
-    const handleRegisterSuccess = (newAuthor) => {
-        // Gera um novo ID simples (em um app real, o backend faria isso)
-        const newId = (parseInt(allAuthors[allAuthors.length - 1].id) + 1).toString().padStart(2, '0');
-        setAllAuthors([...allAuthors, { ...newAuthor, id: newId }]);
-        // Opcional: Redirecionar para a primeira página ou ajustar a paginação
+    const handleRegisterSuccess = async (newAuthor) => {
+    try {
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/autores`, newAuthor);
+        setAllAuthors([...allAuthors, response.data]); // atualiza a lista com o novo
         setCurrentPage(1);
-    };
+    } catch (error) {
+        console.error("Erro ao cadastrar autor:", error);
+    }
+};
 
-    const handleUpdateSuccess = (updatedAuthor) => {
+    const handleUpdateSuccess = async (updatedAuthor) => {
+    try {
+        await axios.put(`${process.env.REACT_APP_API_URL}/api/autores/${updatedAuthor.id}`, updatedAuthor);
         setAllAuthors(allAuthors.map(author =>
             author.id === updatedAuthor.id ? updatedAuthor : author
         ));
-    };
+    } catch (error) {
+        console.error("Erro ao atualizar autor:", error);
+    }
+};
 
 
     return (
