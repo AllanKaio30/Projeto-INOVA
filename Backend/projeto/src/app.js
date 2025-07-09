@@ -3,6 +3,10 @@ const sequelize = require('./config/db');
 const initModels = require('./models/init-models');
 const app = express();
 
+
+const cors = require('cors');
+app.use(cors());
+
 // Middleware crítico deve vir primeiro
 app.use(express.json());
 

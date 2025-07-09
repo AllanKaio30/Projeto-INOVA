@@ -1,121 +1,75 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Gestão de Autores</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalhes da Propriedade Intelectual</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="container">
     <aside class="sidebar">
-        <img src="imagens/LOGO GPI.png" alt="Logo GPI" class="logo-gpi">
-        <nav>
-            <a href="#">Início</a>
-            <a href="#">Propriedade Intelectual</a>
-            <a href="#" class="active">Autores</a>
-            <a href="#">Pagamentos</a>
-            <a href="#">Configurações</a>
-        </nav>
-        <img src="imagens/UERN INOVA LOGO.png" alt="Logo UERN Inova" class="logo-uern">
+      <div class="logo">
+        <img src="imagens/LOGO GPI.png" alt="CPI Logo" />
+      </div>
+      <nav class="menu">
+        <a href="#">Início</a>
+        <a class="active" href="#">Propriedade Intelectual</a>
+        <a href="#">Pagamentos</a>
+        <a href="#">Configurações</a>
+      </nav>
+      <div class="footer-logo">
+        <img src="imagens/UERN INOVA LOGO.png" alt="LOGO UERN INOVA" />
+      </div>
     </aside>
 
-    <main>
-        <h1>Autores</h1>
-        <div class="top-bar">
-            <input type="text" placeholder="Buscar por nome, sobrenome, instituição, etc.">
-            <button class="filter-btn">Filtros</button>
-            <button class="add-btn" onclick="openAuthorModal()">Cadastrar Autor</button>
+    <main class="content">
+      <header class="topbar">
+        <button class="back-button">← Voltar</button>
+        <h1>Detalhes da Propriedade Intelectual</h1>
+        <div class="top-icons">
+          <span class="icon">👤</span>
+          <span class="icon">🔔</span>
         </div>
+      </header>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>E-mail</th>
-                    <th>Instituição</th>
-                    <th>PIs Registrados</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>01</td>
-                    <td>Fulano de Tal</td>
-                    <td>email@email.com</td>
-                    <td>Universidade do Estado do Rio Grande do Norte</td>
-                    <td><span class="badge">2</span></td>
-                    <td>
-                        <button onclick="openEditModal()">✏️</button>
-                    </td>
-                </tr>
-                <!-- Adicione mais linhas conforme necessário -->
-            </tbody>
-        </table>
+      <section class="status-bar">
+        <span class="tag arquivada">Arquivada</span>
+        <span class="protocolo">Protocolo: PI 0910083 0</span>
+        <button class="edit-button">✏️ Editar PI</button>
+      </section>
 
-        <div class="pagination">
-            <button>Anterior</button>
-            <button class="active">1</button>
-            <button>2</button>
-            <button>Próxima</button>
-        </div>
+      <div class="tabs">
+        <button class="tab">Informações gerais</button>
+        <button class="tab active">Histórico</button>
+      </div>
+
+      <section class="historico">
+        <h2>📅 Histórico de Eventos</h2>
+        <ul class="timeline">
+          <li class="event purple">
+            <span class="date">22/04/2009</span>
+            <h3>Depósito do Pedido de Patente</h3>
+            <p>Pedido de patente depositado no INPI com o protocolo PI 0910083 0</p>
+          </li>
+          <li class="event orange">
+            <span class="date">22/02/2011</span>
+            <h3>Notificação de Depósito</h3>
+            <p>Notificação de Depósito de Pedido de Patente ou de Certificado de Adição de Invenção</p>
+          </li>
+          <li class="event green">
+            <span class="date">28/02/2012</span>
+            <h3>Publicação do Pedido</h3>
+            <p>Publicação do Pedido de Patente ou de Certificado de Adição de Invenção</p>
+          </li>
+          <li class="event red">
+            <span class="date">26/06/2012</span>
+            <h3>Arquivamento</h3>
+            <p>Arquivamento - Art.33 da LPI. Arquivado o pedido, uma vez que não foi requerido o exame no prazo previsto no Art. 33 da LPI.</p>
+          </li>
+        </ul>
+      </section>
     </main>
-
-    <!-- Modal Cadastrar Autor -->
-    <div class="modal" id="authorModal">
-        <div class="modal-content">
-            <h2>Cadastrar Novo Autor</h2>
-            <label>Nome</label>
-            <input type="text" placeholder="Nome completo">
-            <label>E-mail</label>
-            <input type="email" placeholder="email@email.com">
-            <label>Vínculo</label>
-            <div class="radio-group">
-                <label><input type="radio" name="vinculo"> Docente</label>
-                <label><input type="radio" name="vinculo"> Técnico</label>
-                <label><input type="radio" name="vinculo"> Discente Graduação</label>
-                <label><input type="radio" name="vinculo"> Discente Pós-Graduação</label>
-            </div>
-            <label>Departamento</label>
-            <input type="text" placeholder="Departamento">
-            <label>Campus</label>
-            <input type="text" placeholder="Campus">
-            <label>Universidade</label>
-            <input type="text" placeholder="Universidade">
-            <div class="modal-actions">
-                <button onclick="closeAuthorModal()">Cancelar</button>
-                <button>Salvar</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Editar Autor -->
-    <div class="modal" id="editModal">
-        <div class="modal-content">
-            <h2>Editar Autor</h2>
-            <label>Nome</label>
-            <input type="text" value="Fulano de Tal">
-            <label>E-mail</label>
-            <input type="email" value="email@email.com">
-            <label>Vínculo</label>
-            <div class="radio-group">
-                <label><input type="radio" name="vinculo-edit"> Docente</label>
-                <label><input type="radio" name="vinculo-edit"> Técnico</label>
-                <label><input type="radio" name="vinculo-edit"> Discente Graduação</label>
-                <label><input type="radio" name="vinculo-edit"> Discente Pós-Graduação</label>
-            </div>
-            <label>Departamento</label>
-            <input type="text" value="Departamento">
-            <label>Campus</label>
-            <input type="text" value="Mossoró">
-            <label>Universidade</label>
-            <input type="text" value="UERN">
-            <div class="modal-actions">
-                <button onclick="closeEditModal()">Cancelar</button>
-                <button>Salvar Alterações</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+  </div>
 </body>
 </html>
