@@ -22,6 +22,8 @@ export default function UpdateAuthorModal({ onClose, author, onUpdateSuccess }) 
         }
     }, [author]);
 
+    
+
     const handleSubmit = (e) => {
         e.preventDefault();
         // Lógica para atualizar o autor

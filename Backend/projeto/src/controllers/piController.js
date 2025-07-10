@@ -1,5 +1,5 @@
-const PI = require('../mockDB/mockDB');
-const autorDB = require('../mockDB/autorMockData');
+
+
 
 
 // Validação comum
@@ -277,9 +277,7 @@ exports.getTitularesByPI = async (req, res) => {
       });
     }
 
-    const titulares = await Promise.all(
-      pi.titulares.map(titular => autorDB.findById(titular.id))
-    );
+   
     
     res.json({
       success: true,

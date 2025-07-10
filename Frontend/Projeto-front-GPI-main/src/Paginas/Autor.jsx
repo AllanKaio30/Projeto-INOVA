@@ -15,34 +15,25 @@ export default function Autor() {
     const [selectedAuthor, setSelectedAuthor] = useState(null);       // Estado para o autor selecionado para edição
 
     // Dados fictícios dos autores (adicionei mais alguns para testar a paginação)
-    const [allAuthors, setAllAuthors] = useState([
-        { id: '01', name: 'Fulano de Tal', email: 'email@email.com', institution: 'Universidade do Estado do Rio Grande do Norte', registeredPIs: 2, bond: 'Docente', department: 'Departamento de Informática', campus: 'Mossoró', university: 'UERN' },
-        { id: '02', name: 'Beltrano da Silva', email: 'beltrano@email.com', institution: 'Universidade Federal Rural do Semi-Árido', registeredPIs: 3, bond: 'Discente Graduação', department: 'Engenharia Civil', campus: 'Caraúbas', university: 'UFERSA' },
-        { id: '03', name: 'Cicrano Santos', email: 'cicrano@email.com', institution: 'Universidade Federal do Rio Grande do Norte', registeredPIs: 4, bond: 'Técnico', department: 'Biblioteca Central', campus: 'Natal', university: 'UFRN' },
-        { id: '04', name: 'Maria Oliveira', email: 'maria@email.com', institution: 'Universidade do Estado do Rio Grande do Norte', registeredPIs: 2, bond: 'Discente Pós-Graduação', department: 'Ciência da Computação', campus: 'Mossoró', university: 'UERN' },
-        { id: '05', name: 'João Batista', email: 'joao@email.com', institution: 'Instituto Federal do Rio Grande do Norte', registeredPIs: 1, bond: 'Docente', department: 'Engenharia de Software', campus: 'Macau', university: 'IFRN' },
-        { id: '06', name: 'Ana Costa', email: 'ana@email.com', institution: 'Universidade do Estado do Rio Grande do Norte', registeredPIs: 5, bond: 'Discente Graduação', department: 'Pedagogia', campus: 'Pau dos Ferros', university: 'UERN' },
-        { id: '07', name: 'Pedro Souza', email: 'pedro@email.com', institution: 'Universidade Federal Rural do Semi-Árido', registeredPIs: 3, bond: 'Técnico', department: 'Contabilidade', campus: 'Mossoró', university: 'UFERSA' },
-        { id: '08', name: 'Mariana Lima', email: 'mariana@email.com', institution: 'Universidade Federal do Rio Grande do Norte', registeredPIs: 2, bond: 'Docente', department: 'Artes', campus: 'Natal', university: 'UFRN' },
-        { id: '09', name: 'Lucas Pereira', email: 'lucas@email.com', institution: 'Universidade do Estado do Rio Grande do Norte', registeredPIs: 6, bond: 'Discente Pós-Graduação', department: 'Química', campus: 'Assu', university: 'UERN' },
-        { id: '10', name: 'Carla Nunes', email: 'carla@email.com', institution: 'Instituto Federal do Rio Grande do Norte', registeredPIs: 1, bond: 'Docente', department: 'Mecatrônica', campus: 'Apodi', university: 'IFRN' },
-    ]);
-    useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/api/autores`)
-        .then((response) => {
-            setAllAuthors(response.data);
-        })
-        .catch((error) => {
-            console.error("Erro ao buscar autores:", error);
-        });
+    
+    const [allAuthors, setAllAuthors] = useState([]);
+   useEffect(() => {
+  axios.get(`${process.env.REACT_APP_API_URL}/api/autores`)
+    .then((response) => {
+      setAllAuthors(response.data); // Atualiza o estado com os autores
+    })
+    .catch((error) => {
+      console.error("Erro ao buscar autores:", error);
+    });
 }, []);
 
     // Lógica de filtro pela barra de busca
     const filteredAuthors = allAuthors.filter(author =>
-        author.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        author.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        author.institution.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    (author.name && author.name.toLowerCase().includes(searchTerm.toLowerCase())) ||
+    (author.email && author.email.toLowerCase().includes(searchTerm.toLowerCase())) ||
+    (author.institution && author.institution.toLowerCase().includes(searchTerm.toLowerCase()))
+);
+
 
     // Lógica de paginação
     const indexOfLastAuthor = currentPage * authorsPerPage;

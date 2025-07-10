@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('autor', {
     id: {
@@ -7,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       primaryKey: true
     },
-    nome: {
+    name: {
       type: DataTypes.STRING(50),
       allowNull: false
     },
@@ -15,11 +16,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(50),
       allowNull: false
     },
-    vinculo: {
+    bond: {
       type: DataTypes.STRING(30),
       allowNull: false
     },
-    departamento: {
+    department: {
       type: DataTypes.STRING(50),
       allowNull: false
     },
@@ -27,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(30),
       allowNull: false
     },
-    universidade: {
+    university: {
       type: DataTypes.STRING(50),
       allowNull: false
     }
